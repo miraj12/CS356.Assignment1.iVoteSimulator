@@ -9,6 +9,6 @@ package iVoteSimulator;
  *
  * @author mirajpatel
  */
-public class Question {
+public abstract class Question {
     
 }
