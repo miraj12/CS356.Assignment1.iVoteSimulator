@@ -5,10 +5,27 @@
  */
 package iVoteSimulator;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mirajpatel
  */
 public class SingleChoiceQuestion extends Question {
+    
+    public SingleChoiceQuestion(String question, ArrayList<String> options, ArrayList<String> correctAnswer) {
+        super(question, options, correctAnswer);
+    }
+
+    @Override
+    public ArrayList<String> showAnswer() {
+        return this.getAnswers();
+    }
+
+    @Override
+    public boolean validateAnswer(ArrayList<String> answer) {
+        // add more to validate if the answer is correct
+        return this.getAnswers().get(0).compareTo(answer.get(0)) == 0;
+    }
     
 }

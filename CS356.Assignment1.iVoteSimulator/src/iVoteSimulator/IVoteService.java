@@ -5,10 +5,13 @@
  */
 package iVoteSimulator;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mirajpatel
  */
-public class IVoteService {
-    
+public interface IVoteService {
+    public void submitAnswers(String sID, ArrayList<String> answer);
+    public void showResults();
 }
