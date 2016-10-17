@@ -6,6 +6,7 @@
 package iVoteSimulator;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -15,78 +16,95 @@ public class SimulationDriver {
     
     public static void main(String[] args){
         
+      
         
-        ArrayList<String> multipleChoice = new ArrayList<String>();
-        ArrayList<String> options = new ArrayList<String>();
-        ArrayList<String> correctAns = new ArrayList<String>();
+        Student[] students = new Student[30];
+        
+        
+        ArrayList<String> multiOptions = new ArrayList<>();
+        ArrayList<String> correctAns = new ArrayList<>();
        
-        Student stu1 = new Student();
-        Student stu2 = new Student();
+       
+        
+        Question multiChoice = new MultipleChoiceQuestion("Select correct answers from the options",multiOptions,correctAns);
+        
+        multiOptions.add("A");
+        multiOptions.add("B");
+        multiOptions.add("C");
+        multiOptions.add("D");
+        
+        correctAns.add(multiOptions.get(0));
+        correctAns.add(multiOptions.get(2));
+        
+        ConsoleIVoteService serv1 = new ConsoleIVoteService(multiChoice);
         
         
-        options.add("A");
-        options.add("B");
-        options.add("C");
-        options.add("D");
+       // first answer submit
+        for(int i = 0; i < students.length; i++){
+           students[i] = new Student();
+           students[i].setAnswers(generateAnswers(multiOptions.size(),multiOptions));
+           students[i].submit(serv1);
+        }
+       
+        serv1.showResults();
+        
+        // some students resubmits answers
+         for(int i = 0; i < students.length; i+=10){
+           students[i].setAnswers(generateAnswers(multiOptions.size(),multiOptions));
+           students[i].submit(serv1);
+        }
+        
+        
+        serv1.showResults();
+        
+        System.out.println("Total sumbmissions: " + Student.getCount() + "\n");
+        
+        //////////////////singleChoice//////////////////////
         
         ArrayList<String> option2 = new ArrayList<>();
         option2.add("yes");
         option2.add("no");
-        
+       
         ArrayList<String> opt2Ans = new ArrayList<>();
         opt2Ans.add(option2.get(0));
-       
-        correctAns.add(options.get(0));
-        correctAns.add(options.get(2));
-         Question multiChoice = new MultipleChoiceQuestion("Is it right?",options,correctAns);
-         Question singleChoice = new SingleChoiceQuestion("Is it right?", option2, opt2Ans);
-         
-        ConsoleIVoteService serv1 = new ConsoleIVoteService(multiChoice);
         
+        Question singleChoice = new SingleChoiceQuestion("Is CS fun?", option2, opt2Ans);
+        ConsoleIVoteService serv2 = new ConsoleIVoteService(singleChoice);
         
-        ArrayList<String> stuAns1 = new ArrayList<>();
-        stuAns1.add("A");
-        stuAns1.add("C");
-        stu1.setAnswers(stuAns1);
-        stu1.submit(serv1);
-       
-        ArrayList<String> stuAns2 = new ArrayList<>();
-        stuAns2.add("B");
-        stuAns2.add("C");
-        stu2.setAnswers(stuAns2);
-        stu2.submit(serv1);
-       
-        serv1.showResults();
-        
-       System.out.println("Student ID: " + stu1.getId());
-       System.out.println("Student ID: " + stu2.getId());
-        
-        stuAns1.set(0, "B");
-        stuAns1.set(1, "D");
-        
-        stu1.submit(serv1);
-        serv1.showResults();
-        
-       System.out.println("Student ID: " + stu1.getId());
-       System.out.println("Student ID: " + stu2.getId());
-       
-       ConsoleIVoteService serv2 = new ConsoleIVoteService(singleChoice);
-       ArrayList<String> stuAns12 = new ArrayList<>();
-       stuAns12.add("yes");
-       stu1.setAnswers(stuAns12);
-       stu1.submit(serv2);
-       
-       
-       
-       ArrayList<String> stuAns22 = new ArrayList<>();
-       stuAns22.add("yes");
-       stu2.setAnswers(stuAns22);
-       stu2.submit(serv2);
+        //first time answer submit
+        for(int i = 0; i < students.length; i++){
+           students[i].setAnswers(generateAnswers(option2.size(),option2));
+           students[i].submit(serv2);
+        }
        
        serv2.showResults();
+       
+       
+       // some student resumbits answers
+        for(int i = 0; i < students.length; i+=5){
+           students[i].setAnswers(generateAnswers(option2.size(),option2));
+           students[i].submit(serv2);
+        }
+       
+        
+        serv2.showResults();
+    }
+    
+    public static ArrayList<String> generateAnswers(int numOfChoices, ArrayList<String> choices){
+        Random rand = new Random();
+        int numOfAns = 1;
+        ArrayList<String> answer = new ArrayList<>();
+        
+        if(numOfChoices > 2){
+            numOfAns = rand.nextInt(numOfChoices);
+        }
+        
+        for (int i = 0; i < numOfAns; i++){
+            answer.add(choices.get(rand.nextInt(numOfChoices)));
+        }
         
         
-        
+        return answer;
     }
     
 }

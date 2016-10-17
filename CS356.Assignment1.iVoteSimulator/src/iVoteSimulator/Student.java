@@ -25,6 +25,9 @@ public class Student {
    public String getId(){
        return this.ID;
    }
+   public static int getCount(){
+       return count;
+   }
     public boolean setAnswers(ArrayList<String> entry){
         this.answers = entry;
         return true;

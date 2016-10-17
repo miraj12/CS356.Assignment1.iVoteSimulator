@@ -30,7 +30,7 @@ public class ConsoleIVoteService implements IVoteService {
         submission.addAll(temp);
         
         this.answerHash.put(sID, submission);
-        System.out.println("Answer submitted");
+       
     }
     
     public void showResults(){
