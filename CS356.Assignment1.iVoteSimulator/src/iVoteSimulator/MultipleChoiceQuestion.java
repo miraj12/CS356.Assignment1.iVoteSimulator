@@ -13,17 +13,22 @@ import java.util.Set;
  *
  * @author mirajpatel
  */
+
+// multiple choice question class extends question class
 public class MultipleChoiceQuestion extends Question {
     
     public MultipleChoiceQuestion(String question, ArrayList<String> options, ArrayList<String> correctAnswer) {
         super(question, options, correctAnswer);
     }
-
+    
+    
+    // show correct answer
     @Override
     public ArrayList<String> showAnswer() {
          return this.getAnswers();
     }
 
+   //check if answer is correct
     @Override
     public boolean validateAnswer(ArrayList<String> answer) {
        // add more to validate if answer is correct

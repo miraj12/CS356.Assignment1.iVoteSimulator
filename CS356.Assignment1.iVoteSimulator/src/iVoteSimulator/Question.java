@@ -11,6 +11,8 @@ import java.util.ArrayList;
  *
  * @author mirajpatel
  */
+
+// abstract question class since multiple choice and single choice are type of questions
 public abstract class Question {
     private String question;
     private ArrayList<String> options;

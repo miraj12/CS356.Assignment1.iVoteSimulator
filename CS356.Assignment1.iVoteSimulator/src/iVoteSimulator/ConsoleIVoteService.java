@@ -14,6 +14,7 @@ import java.util.Set;
  *
  * @author mirajpatel
  */
+// implement IVoteService for console
 public class ConsoleIVoteService implements IVoteService {
     private Question question;
     private HashMap<String, ArrayList<String>> answerHash;

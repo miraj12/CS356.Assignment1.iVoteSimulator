@@ -17,11 +17,13 @@ public class SingleChoiceQuestion extends Question {
         super(question, options, correctAnswer);
     }
 
+    // show correct answer
     @Override
     public ArrayList<String> showAnswer() {
         return this.getAnswers();
     }
-
+ 
+    // check if answer is correct
     @Override
     public boolean validateAnswer(ArrayList<String> answer) {
         // add more to validate if the answer is correct

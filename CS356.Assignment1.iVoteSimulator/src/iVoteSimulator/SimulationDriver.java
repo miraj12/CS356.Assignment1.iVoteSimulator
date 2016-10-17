@@ -90,6 +90,8 @@ public class SimulationDriver {
         serv2.showResults();
     }
     
+    
+    // randomly generate answers from the given choices
     public static ArrayList<String> generateAnswers(int numOfChoices, ArrayList<String> choices){
         Random rand = new Random();
         int numOfAns = 1;

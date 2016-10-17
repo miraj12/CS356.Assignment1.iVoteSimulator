@@ -11,6 +11,7 @@ import java.util.ArrayList;
  *
  * @author mirajpatel
  */
+// interface for IVoteService can be implemented for console or web application
 public interface IVoteService {
     public void submitAnswers(String sID, ArrayList<String> answer);
     public void showResults();

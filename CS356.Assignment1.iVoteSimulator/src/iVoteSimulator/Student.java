@@ -28,12 +28,15 @@ public class Student {
    public static int getCount(){
        return count;
    }
-    public boolean setAnswers(ArrayList<String> entry){
+   
+  
+   public boolean setAnswers(ArrayList<String> entry){
         this.answers = entry;
         return true;
     }
     
-    public boolean submit(ConsoleIVoteService iVote){
+   // submit answer 
+   public boolean submit(ConsoleIVoteService iVote){
         if(this.answers == null)
             return false;
         else {
