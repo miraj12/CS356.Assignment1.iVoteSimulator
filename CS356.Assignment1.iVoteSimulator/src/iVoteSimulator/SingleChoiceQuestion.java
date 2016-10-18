@@ -16,12 +16,6 @@ public class SingleChoiceQuestion extends Question {
     public SingleChoiceQuestion(String question, ArrayList<String> options, ArrayList<String> correctAnswer) {
         super(question, options, correctAnswer);
     }
-
-    // show correct answer
-    @Override
-    public ArrayList<String> showAnswer() {
-        return this.getAnswers();
-    }
  
     // check if answer is correct
     @Override

@@ -24,6 +24,9 @@ public class ConsoleIVoteService implements IVoteService {
         this.answerHash = new HashMap<>();
     }
     
+    
+    
+    // submit answer for each student with their unique id
     public void submitAnswers(String sID, ArrayList<String> answer){
         Set<String> temp = new HashSet<>(answer);
         ArrayList<String> submission = new ArrayList<>();
@@ -34,6 +37,7 @@ public class ConsoleIVoteService implements IVoteService {
        
     }
     
+    // print out the statistics of answers chosen by students
     public void showResults(){
         String results = "Q:\t";
         results += this.question.getQuestion() + "\n";

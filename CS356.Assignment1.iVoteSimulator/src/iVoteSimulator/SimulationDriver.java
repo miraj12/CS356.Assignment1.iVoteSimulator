@@ -17,10 +17,10 @@ public class SimulationDriver {
     public static void main(String[] args){
         
       
-        
+        // 30 students
         Student[] students = new Student[30];
         
-        
+        // multiple choice question
         ArrayList<String> multiOptions = new ArrayList<>();
         ArrayList<String> correctAns = new ArrayList<>();
        
@@ -39,7 +39,7 @@ public class SimulationDriver {
         ConsoleIVoteService serv1 = new ConsoleIVoteService(multiChoice);
         
         
-       // first answer submit
+       // first time answer submit
         for(int i = 0; i < students.length; i++){
            students[i] = new Student();
            students[i].setAnswers(generateAnswers(multiOptions.size(),multiOptions));

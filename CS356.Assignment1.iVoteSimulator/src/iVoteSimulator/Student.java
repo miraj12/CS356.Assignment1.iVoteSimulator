@@ -29,13 +29,13 @@ public class Student {
        return count;
    }
    
-  
+   // set answer 
    public boolean setAnswers(ArrayList<String> entry){
         this.answers = entry;
         return true;
     }
     
-   // submit answer 
+   // submit answer to current IVoteService
    public boolean submit(ConsoleIVoteService iVote){
         if(this.answers == null)
             return false;

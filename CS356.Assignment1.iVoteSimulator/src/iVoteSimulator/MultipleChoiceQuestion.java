@@ -21,17 +21,10 @@ public class MultipleChoiceQuestion extends Question {
         super(question, options, correctAnswer);
     }
     
-    
-    // show correct answer
-    @Override
-    public ArrayList<String> showAnswer() {
-         return this.getAnswers();
-    }
 
    //check if answer is correct
     @Override
     public boolean validateAnswer(ArrayList<String> answer) {
-       // add more to validate if answer is correct
        final Set<String> s1 = new HashSet<>(answer);
        final Set<String> s2 = new HashSet<>(this.getAnswers());
        

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 // abstract question class since multiple choice and single choice are type of questions
 public abstract class Question {
+    
     private String question;
     private ArrayList<String> options;
     private ArrayList<String> correctAnswer;
@@ -38,12 +39,12 @@ public abstract class Question {
     public ArrayList<String> getOptions() {
         return this.options;
     }
-    
+    // get the correct answer
     public ArrayList<String> getAnswers(){
         return this.correctAnswer;
     }
     
-    public abstract ArrayList<String> showAnswer();
+    
     public abstract boolean validateAnswer(ArrayList<String> answer);
     
     
